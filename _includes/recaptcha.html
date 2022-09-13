@@ -1,8 +1,8 @@
-<script src="https://www.google.com/recaptcha/api.js?render=6LfBsfIhAAAAAEuUTSDd4Dj4C3eGMInUn00uNF3_"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LfjMPchAAAAAGdx19O55Uzb6BlU_8hHVcWYmY1c"></script>
 <script>
   var submitted = false;
   var tokenCreated = false;
-  var formEl = document.getElementById('employment');
+  var formEl = document.getElementById('contact');
 
   formEl.addEventListener("submit", function (event) {
 
@@ -19,7 +19,7 @@
         grecaptcha.ready(function() {
           // do request for recaptcha token
           // response is promise with passed token
-          grecaptcha.execute('6LfBsfIhAAAAAEuUTSDd4Dj4C3eGMInUn00uNF3_', {action: 'create_comment'}).then(function (token) {
+          grecaptcha.execute('6LfjMPchAAAAAGdx19O55Uzb6BlU_8hHVcWYmY1c', {action: 'create_comment'}).then(function (token) {
             // add token to form
             var input = document.createElement("input");
             input.type = "hidden";
