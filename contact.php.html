@@ -636,9 +636,7 @@
     </div>
     <div id="wb_Form1" style="position:absolute;left:17px;top:424px;width:615px;height:362px;z-index:32;">
         <script type="text/javascript" src="http://192.168.156.24:7700/CatalystScripts/ValidationFunctions_vs=b440.r528249-phase1.js"></script>
-        <form name="catwebformform29655" method="post" onsubmit="return checkWholeForm29655(this)"
-              enctype="multipart/form-data" action="https://formkeep.com/f/8835e8744c16">
-            <input type="hidden" name="csrfmiddlewaretoken" value="kcHiWKO25eeMIxWslcAkPcv6NXOu3NOwoFDXBT6GtWrUQMXjDMt1alBqJOpxoixC">
+        <form action="/success.html" method="POST" enctype="multipart/form-data" id="contact">
             <span class="req">*</span>
             Required
             <table class="webform" cellspacing="0" cellpadding="2" border="0">
@@ -725,54 +723,20 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><input class="cat_button g-recaptcha"
-                               data-sitekey="6LcKIscbAAAAAOyBuDBwOVjYv6UhkM8_vTkFFry4"
-                               data-callback="submitContactForm"
-                               id="form-button"
-                               type="submit" value="Submit" id="catwebformbutton"/></td>
+                    <td>
+                      <input type="hidden" name="inbox_key" value="epic-employment-form">
+                      <input type="hidden" name="_to" value="carlos@accoladesit.com">
+                      <input type="text" name="_gotcha" style="display: none;">
+                      <button class="cat_button" type="submit">SUBMIT</button>
+                     </td>
                 </tr>
             </table>
-            <script type="text/javascript" src="http://192.168.156.24:7700/CatalystScripts/Java_DatePicker_vs=b440.r528249-phase1.js"></script>
+            
         </form>
-        <script>
-            function submitContactForm(event) {
-                var form = new FormData(document.getElementById('contact-form'));
-                $.ajax({
-                    headers: {'X-CSRFTOken': 'kcHiWKO25eeMIxWslcAkPcv6NXOu3NOwoFDXBT6GtWrUQMXjDMt1alBqJOpxoixC'},
-                    enctype: 'multipart/form-data',
-                    url: '/',
-                    contentType: false,
-                    processData: false,
-                    type: 'POST',
-                    data: form,
-                    success: function (result) {
-                        if (result.status === 200) {
-                            Swal.fire("Form Submitted!", "Your message has been sent to us", "success")
-                        } else {
-                            let errors = ""
-                            for (var i = 0; i < result.errors.length; i++) {
-                                errors += `<li>${result.errors[i]}</li>`;
-                            }
-                            Swal.fire({
-                                "icon": "warning",
-                                "title": "Invalid Form",
-                                "html": `These fields are either invalid or blank: <ul>${errors}<ul>`
-                            });
-                        }
-                    }
-                    ,
-                    error: function (err) {
-                        Swal.fire({
-                            icon: "error",
-                            title: "Form Submission Failure",
-                            html: "Something went wrong, please try again later"
-                        })
-                    }
-                })
-            }
-        </script>
+
     </div>
 </div>
+  {% include recaptcha.html %}   
 <script async
         src="http://i.simpli.fi/dpx.js?cid=21668&amp;action=100&amp;segment=IlyasMunshi&amp;m=1&amp;sifi_tuid=7397"></script>
 </body>
